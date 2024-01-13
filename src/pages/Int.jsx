@@ -21,26 +21,57 @@ function Int(props){
         const year = today.getFullYear();
         const date = today.getDate();
         const d= `${month}/${date}/${year}`;
-        let url="http://newsapi.org/v2/everything?q=biggest-international-news&q=no-chatgpt&q=no-post-without-working-picture-url&q="+d+"&apiKey="+ids.K1;
-        if(log){
-            url="http://newsapi.org/v2/everything?q="+count+"&q=no-chatgpt&q=no-post-without-working-picture-url&q="+d+"&apiKey="+ids.K1;
+        let options ={};
+        if(!log) {
+            options = {
+                method: 'POST',
+                url: 'https://newsnow.p.rapidapi.com/',
+                headers: {
+                'content-type': 'application/json',
+                'X-RapidAPI-Key': '145f5e0da4msh7adab9b8dc9ebe4p1bcd68jsn359f4f96fa97',
+                'X-RapidAPI-Host': 'newsnow.p.rapidapi.com'
+                },
+                data: {
+                text: 'Top news',
+                region: 'wt-wt',
+                max_results: 25
+                }
+            };
         }
-        axios
-        .get(url)
-        .then((resp)=>{
-            console.log(resp);
-            setItem(resp.data.articles);
-        })
+        else{
+            options = {
+                method: 'POST',
+                url: 'https://newsnow.p.rapidapi.com/',
+                headers: {
+                'content-type': 'application/json',
+                'X-RapidAPI-Key': '145f5e0da4msh7adab9b8dc9ebe4p1bcd68jsn359f4f96fa97',
+                'X-RapidAPI-Host': 'newsnow.p.rapidapi.com'
+                },
+                data: {
+                text: count,
+                region: 'wt-wt',
+                max_results: 25
+                }
+            };
+        }
+          
+            axios.request(options)
+            .then((response)=>{
+                console.log("kkk",response.data.news);
+                setItem(response.data.news);
+            })
+            .catch((error)=>{
+              console.error(error);
+             })
     },[log])
     useEffect(()=>{
-        console.log(items);
+        console.log("ppp",items);
         props.updatel(false);
     },[items])
     return (
             !loading?
             <div className=' md:fixed pb-40 overflow-y-scroll overflow-x-hidden scrollbar-none md:top-42 md:left-40 lg:left-48 w-full h-full md:right-40 lg:right-48 md:w-auto  m-2 flex flex-wrap align-middle justify-center justify-items-center items-center'>
                 {items.map((file)=>{
-                    if(file.urlToImage&&file.description!='Comments'){
                     return(
                         <div onClick={()=>{props.upd(file);props.updc(file.content)}} className=' w-full  p-1 md:w-1/2 lg:w-1/4 h-auto'>
                         <Link  to={`/article/${file.title}`}>
@@ -49,7 +80,7 @@ function Int(props){
                         </div>
                         </Link>
                         </div>
-                    )}
+                    )
                     })
                 }
             </div>
