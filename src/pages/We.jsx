@@ -14,7 +14,7 @@ function We(){
             url: 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather',
             params: {city: `${cont.slug}`},
             headers: {
-              'X-RapidAPI-Key': '145f5e0da4msh7adab9b8dc9ebe4p1bcd68jsn359f4f96fa97',
+              'X-RapidAPI-Key': 'd31d97453emshb056178a4e06a3ap181c9ajsn2a2176f3dad3',
               'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
             }
           };

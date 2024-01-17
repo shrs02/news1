@@ -17,14 +17,28 @@ function Sidecard(props){
         const date = today.getDate();
         const d= `${month}/${date}/${year}`;
         const s=props.file;
-        const url="http://newsapi.org/v2/everything?q="+s+"&q=no-chatgpt&q=no-post-without-working-picture-url&q="+d+"&pageSize=3&apiKey="+ids.K1;
-        console.log(url);
-        axios
-        .get(url)
-        .then((resp)=>{
-            console.log(resp);
-            setItem(resp.data.articles);
+        const options = {
+            method: 'POST',
+            url: 'https://newsnow.p.rapidapi.com/',
+            headers: {
+            'content-type': 'application/json',
+            'X-RapidAPI-Key': 'd31d97453emshb056178a4e06a3ap181c9ajsn2a2176f3dad3',
+            'X-RapidAPI-Host': 'newsnow.p.rapidapi.com'
+            },
+            data: {
+            text: s,
+            region: 'wt-wt',
+            max_results: 3
+            }
+        };
+        axios.request(options)
+        .then((response)=>{
+            console.log("kkk",response.data.news);
+            setItem(response.data.news);
         })
+        .catch((error)=>{
+            console.error(error);
+            })
     },[])
     useEffect(()=>{
         console.log(items);
@@ -40,7 +54,6 @@ function Sidecard(props){
                 </Link>
                 <div className='flex flex-row w-full h-auto md:flex-col'>
                     {items.map((file)=>{
-                        if(file.urlToImage&&file.description!='Comments'){
                         return(
                             <div onClick={()=>{props.upd(file);props.updc(file.content)}} className=' w-full  p-1 md:w-full lg:w-full h-auto'>
                             <Link  to={`/article/${file.title}`}>
@@ -51,7 +64,7 @@ function Sidecard(props){
                             </div>
                             </Link>
                             </div>
-                        )}
+                        )
                         })
                     }
                 </div>

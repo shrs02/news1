@@ -1,9 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 function Card (file){
-    useEffect(()=>{
-        console.log(file.photo_url);
-    },[])
     return(
         <div className='flex bg-white border border-gray-200 flex-col justify-around rounded-lg shadow  w-full h-full hover:bg-gray-100'>
                 <img className="click:animate-ping p-1 object-cover w-full rounded-t-lg h-60 rounded-lg" src={file.image} alt=""/>

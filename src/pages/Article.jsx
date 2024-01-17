@@ -13,13 +13,12 @@ function Article(props){
     return (
         <div className=' md:fixed pb-96 overflow-y-scroll overflow-x-hidden md:top-46 md:left-40 lg:left-48 w-full h-full md:right-40 lg:right-48 md:w-auto  lg:m-20 '>
             <div className='flex align-middle justify-center justify-items-center items-center text-xl p-4'>{file.title}</div>
-            <div className='flex justify-end p-2'>{file.author}</div>
+            <div className='flex justify-end p-2'>{file.source}</div>
             <div className=' flex align-middle justify-center justify-items-center items-center'>
-            <img src={file.urlToImage} className='w-1/2 m-6'  />
+            <img src={file.image} className='w-1/2 m-6'  />
             </div>
             <div className='m-4'>
-            <p>{file.description}</p>
-            <p>{cont}</p>
+            <p>{file.body}</p>
             </div>
         </div>
     )
