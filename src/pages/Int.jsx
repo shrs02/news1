@@ -28,13 +28,13 @@ function Int(props){
                 url: 'https://newsnow.p.rapidapi.com/',
                 headers: {
                 'content-type': 'application/json',
-                'X-RapidAPI-Key': '5364c010admsh6038e5c61297852p176776jsnf8192e3fa605',
+                'X-RapidAPI-Key': 'b3234c3172msha6133d788e6aa2fp1501a7jsnc31945e6289b',
                 'X-RapidAPI-Host': 'newsnow.p.rapidapi.com'
                 },
                 data: {
                 text: 'Top news',
                 region: 'wt-wt',
-                max_results: 50,
+                max_results: 16,
                 }
             };
         }
@@ -44,13 +44,13 @@ function Int(props){
                 url: 'https://newsnow.p.rapidapi.com/',
                 headers: {
                 'content-type': 'application/json',
-                'X-RapidAPI-Key': '5364c010admsh6038e5c61297852p176776jsnf8192e3fa605',
+                'X-RapidAPI-Key': 'b3234c3172msha6133d788e6aa2fp1501a7jsnc31945e6289b',
                 'X-RapidAPI-Host': 'newsnow.p.rapidapi.com'
                 },
                 data: {
                 text: count,
                 region: 'wt-wt',
-                max_results: 50,
+                max_results: 16,
                 }
             };
         }
