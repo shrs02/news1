@@ -22,7 +22,7 @@ function Sidecard(props){
             url: 'https://newsnow.p.rapidapi.com/',
             headers: {
             'content-type': 'application/json',
-            'X-RapidAPI-Key': 'b3234c3172msha6133d788e6aa2fp1501a7jsnc31945e6289b',
+            'X-RapidAPI-Key': '82be637fcbmshd9f7cd092179420p1eb0f7jsnfafd7016c7b5',
             'X-RapidAPI-Host': 'newsnow.p.rapidapi.com'
             },
             data: {
