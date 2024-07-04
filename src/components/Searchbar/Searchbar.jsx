@@ -41,7 +41,7 @@ function Searchbar (){
                 navigate(url)
             }}>
                 <div className='flex justify-center w-full rounded-r-lg p-2 bg-sky-300'>
-                 Search
+                 Searchkl
                 </div>
             </button>
         </div>
